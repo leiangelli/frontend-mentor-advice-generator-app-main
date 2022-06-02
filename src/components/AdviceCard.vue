@@ -5,9 +5,9 @@
       'is-loading': !result
     }"
   >
-    <h2>
+    <h1>
       <template v-if="result">Advice #{{ result?.id }}</template>
-    </h2>
+    </h1>
 
     <p v-if="result">"{{ result?.advice }}"</p>
 
