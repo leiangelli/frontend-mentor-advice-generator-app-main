@@ -1,0 +1,130 @@
+@use '../abstracts' as *;
+
+.advice-card {
+  align-items: center;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px 0 rgba(#000, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 200px;
+  padding: 40px 25px 65px;
+  position: relative;
+  width: min(540px, 92%);
+
+  @include mq(992px) {
+    border-radius: 15px;
+    min-height: 330px;
+    padding: 47px 50px 70px;
+  }
+
+  &.is-loading {
+    h2 {
+      @include wh(120px, 18px);
+    }
+
+    p {
+      height: 30px;
+      margin-bottom: 10px;
+
+      &:nth-of-type(1) {
+        width: 90%;
+      }
+
+      &:nth-of-type(2) {
+        width: 85%;
+      }
+
+      &:nth-of-type(3) {
+        width: 100%;
+      }
+
+      &:nth-of-type(4) {
+        width: 75%;
+      }
+    }
+
+    h2,
+    p {
+      animation: animate-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      background-image: linear-gradient(to left, hsl(217deg 19% 33%), hsl(217deg, 20%, 32%));
+      border-radius: 30px;
+    }
+  }
+
+  h2 {
+    color: var(--main-accent);
+    font-size: em(11px);
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+
+    @include mq(992px) {
+      font-size: em(12.4px);
+    }
+  }
+
+  p {
+    font-size: em(24px);
+    text-align: center;
+
+    @include mq(992px) {
+      font-size: em(27px);
+    }
+  }
+
+  hr {
+    width: 100%;
+    border: 0;
+    margin: 25px auto 0;
+
+    @include mq(992px) {
+      margin-top: 40px;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      height: 16px;
+
+      background: {
+        image: url(../assets/images/pattern-divider-desktop.svg);
+        repeat: no-repeat;
+      }
+
+      @include mq(991px, max-width) {
+        background-image: url(../assets/images/pattern-divider-mobile.svg);
+      }
+    }
+  }
+}
+
+.advice-card__button {
+  @include absolute($bottom: -2.5em, $left: 50%);
+  @include wh(65px, 65px);
+  align-items: center;
+  background-color: var(--main-accent);
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  transform: translateX(-50%);
+  transition: box-shadow 0.35s ease;
+
+  &:hover {
+    box-shadow: 0 0 23px 0px var(--main-accent);
+  }
+}
+
+@keyframes animate-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}

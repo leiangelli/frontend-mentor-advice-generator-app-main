@@ -1,0 +1,11 @@
+@use 'sass:color';
+
+/**
+ * toRgb(#000)
+ *  => 0,0,0
+ */
+@function toRgb ($hex) {
+  @return color.red($hex),
+  color.green($hex),
+  color.blue($hex);
+}

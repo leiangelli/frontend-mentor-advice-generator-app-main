@@ -1,0 +1,37 @@
+@use 'variables' as *;
+
+* {
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: var(--main-bg);
+  color: var(--main-text);
+  display: flex;
+  flex-direction: column;
+
+  font: {
+    family: 'Manrope', sans-serif;
+    size: $BASE_FONTSIZE;
+  }
+
+  min-height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+button {
+  border: none;
+}
